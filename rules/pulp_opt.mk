@@ -28,6 +28,10 @@ override CONFIG_OPT += loader/bridge=$(bridge)
 override CONFIG_OPT += loader/boot/mode=$(boot)
 endif
 
+ifdef bridge-commands
+override CONFIG_OPT += debug-bridge/commands=$(bridge-commands)
+endif
+
 help_generic:
 	@echo "Generic options:"
 	@echo "  platform=<name>      Specify the platform on which to launch the application."
