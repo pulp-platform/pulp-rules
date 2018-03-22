@@ -42,7 +42,7 @@ endif
 genconf:
 	plpflags gen $(FLAGS_OPT) --output-dir=$(CONFIG_BUILD_DIR) --makefile=$(CONFIG_BUILD_DIR)/config.mk $(properties) $(libs) $(apps) --out-config=$(CONFIG_BUILD_DIR)/config.json
 
-$(CONFIG_BUILD_DIR)/config.mk:
+$(CONFIG_BUILD_DIR)/config.mk: $(MAKEFILE_LIST)
 	plpflags gen $(FLAGS_OPT) --output-dir=$(CONFIG_BUILD_DIR) --makefile=$(CONFIG_BUILD_DIR)/config.mk $(properties) $(libs) $(apps) --out-config=$(CONFIG_BUILD_DIR)/config.json
 
 -include $(CONFIG_BUILD_DIR)/config.mk
