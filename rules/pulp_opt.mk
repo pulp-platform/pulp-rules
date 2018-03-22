@@ -35,7 +35,7 @@ endif
 help_generic:
 	@echo "Generic options:"
 	@echo "  platform=<name>      Specify the platform on which to launch the application."
-	@echo "  io=<name>            Specify the device used for debug IOs."
+	@echo "  io=<name>            Specify the device used for debug IOs (default, uart)."
 	@echo "  no-werror=1          Deactivate errors on warnings for all modules"
 	@echo "  boot=<boot>          Specify the boot mode (rom, jtag, rom_spi, rom_hyper)"
 
