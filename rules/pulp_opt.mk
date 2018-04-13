@@ -32,6 +32,11 @@ ifdef bridge-commands
 override CONFIG_OPT += debug-bridge/commands=$(bridge-commands)
 endif
 
+ifdef gdb
+override PULP_TEMPLATE_ARGS += gdb($(gdb))
+export PULP_TEMPLATE_ARGS
+endif
+
 help_generic:
 	@echo "Generic options:"
 	@echo "  platform=<name>      Specify the platform on which to launch the application."
