@@ -28,12 +28,27 @@ override CONFIG_OPT += loader/bridge=$(bridge)
 override CONFIG_OPT += loader/boot/mode=$(boot)
 endif
 
+ifdef bridge-commands
+override CONFIG_OPT += debug-bridge/commands=$(bridge-commands)
+endif
+
+ifdef gdb
+override PULP_TEMPLATE_ARGS += gdb($(gdb))
+export PULP_TEMPLATE_ARGS
+endif
+
+ifdef bridge
+override PULP_TEMPLATE_ARGS += debug-bridge($(bridge))
+export PULP_TEMPLATE_ARGS
+endif
+
 help_generic:
 	@echo "Generic options:"
 	@echo "  platform=<name>      Specify the platform on which to launch the application."
-	@echo "  io=<name>            Specify the device used for debug IOs."
+	@echo "  io=<name>            Specify the device used for debug IOs (default, uart)."
 	@echo "  no-werror=1          Deactivate errors on warnings for all modules"
 	@echo "  boot=<boot>          Specify the boot mode (rom, jtag, rom_spi, rom_hyper)"
+	@echo "  gdb=1                Activate GDB support"
 
 help_opt: help_generic help_opt_vsim help_opt_vp help_opt_rt
 
