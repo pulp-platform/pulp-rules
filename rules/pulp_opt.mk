@@ -22,6 +22,10 @@ ifdef no-werror
 override CONFIG_OPT += rt/werror=false gvsoc/werror=false
 endif
 
+ifdef libgomp
+override CONFIG_OPT += rt/openmp-rt=libgomp
+endif
+
 ifdef boot
 bridge ?= debug-bridge
 override CONFIG_OPT += loader/bridge=$(bridge)

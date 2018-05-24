@@ -11,10 +11,11 @@ override CONFIG_OPT += rt/start-all=true
 #fc=1
 #endif
 #
-#ifndef cluster
-#ifndef fc
-#cluster=1
-#endif
-#endif
+
+ifndef cluster
+ifndef fc
+cluster=1
+endif
+endif
 
 include $(PULP_SDK_HOME)/install/rules/pulp_rt.mk
