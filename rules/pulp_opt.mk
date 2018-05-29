@@ -53,6 +53,7 @@ help_generic:
 	@echo "  no-werror=1          Deactivate errors on warnings for all modules"
 	@echo "  boot=<boot>          Specify the boot mode (rom, jtag, rom_spi, rom_hyper)"
 	@echo "  gdb=1                Activate GDB support"
+	@echo "  bridge=<mode>        Activate debug bridge support with the specified mode (jtag)"
 
 help_opt: help_generic help_opt_vsim help_opt_vp help_opt_rt
 
