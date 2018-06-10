@@ -1,5 +1,5 @@
 PULP_LDFLAGS += -lbench
-override CONFIG_OPT += options/rt/start-all=true
+override CONFIG_OPT += rt/start-all=true
 
 #override PULP_PROPERTIES += soc/fc soc/cluster
 #
