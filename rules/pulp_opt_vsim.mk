@@ -1,13 +1,13 @@
 ifdef gui
-override CONFIG_OPT += vsim/gui=true
+override CONFIG_OPT += **/vsim/gui=true
 endif
 
 ifdef simchecker
-override CONFIG_OPT += vsim/simchecker=true
+override CONFIG_OPT += **/vsim/simchecker=true
 endif
 
 ifdef vsim/script
-override CONFIG_OPT += vsim/script=$(vsim/script)
+override CONFIG_OPT += **/vsim/script=$(vsim/script)
 endif
 
 help_opt_vsim:

@@ -29,7 +29,7 @@ properties = $(foreach prop,$(PULP_PROPERTIES), --property=$(prop))
 libs       = $(foreach lib,$(PULP_LIBS), --lib=$(lib))
 apps       = $(foreach app,$(PULP_APP), --app=$(app))
 
-override CONFIG_OPT += options/rt/type=pulp-rt
+override CONFIG_OPT += **/options/rt/type=pulp-rt
 
 ifdef CONFIG_OPT
 export PULP_CURRENT_CONFIG_ARGS += $(CONFIG_OPT)
@@ -39,11 +39,19 @@ ifdef PLT_OPT
 pulpRunOpt += $(PLT_OPT)
 endif
 
+configs_opt = $(foreach prop,$(PULP_CURRENT_CONFIG_ARGS), --config=$(prop))
+
 genconf:
-	plpflags gen $(FLAGS_OPT) --output-dir=$(CONFIG_BUILD_DIR) --makefile=$(CONFIG_BUILD_DIR)/config.mk $(properties) $(libs) $(apps) --out-config=$(CONFIG_BUILD_DIR)/config.json
+	plpflags gen $(FLAGS_OPT) --output-dir=$(CONFIG_BUILD_DIR) --makefile=$(CONFIG_BUILD_DIR)/config.mk $(properties) $(libs) $(apps)
+	plpconf --input=$(PULP_CURRENT_CONFIG) $(configs_opt) --output=$(CONFIG_BUILD_DIR)/config.json
+
+$(CONFIG_BUILD_DIR)/config.json:
+	plpconf --input=$(PULP_CURRENT_CONFIG) $(configs_opt) --output=$(CONFIG_BUILD_DIR)/config.json
+
+GEN_TARGETS += $(CONFIG_BUILD_DIR)/config.json
 
 $(CONFIG_BUILD_DIR)/config.mk: $(MAKEFILE_LIST)
-	plpflags gen $(FLAGS_OPT) --output-dir=$(CONFIG_BUILD_DIR) --makefile=$(CONFIG_BUILD_DIR)/config.mk $(properties) $(libs) $(apps) --out-config=$(CONFIG_BUILD_DIR)/config.json
+	plpflags gen $(FLAGS_OPT) --output-dir=$(CONFIG_BUILD_DIR) --makefile=$(CONFIG_BUILD_DIR)/config.mk $(properties) $(libs) $(apps)
 
 -include $(CONFIG_BUILD_DIR)/config.mk
 

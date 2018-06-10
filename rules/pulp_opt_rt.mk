@@ -1,16 +1,16 @@
 ifdef rt/no-werror
-override CONFIG_OPT += rt/werror=false
+override CONFIG_OPT += **/rt/werror=false
 endif
 
 ifdef rt/mode
 ifeq '$(rt/mode)' 'bare'
-override CONFIG_OPT += rt/mode=rtbare
+override CONFIG_OPT += **/rt/mode=rtbare
 else
 ifeq '$(rt/mode)' 'tiny'
-override CONFIG_OPT += rt/mode=rttiny
+override CONFIG_OPT += **/rt/mode=rttiny
 else
 ifeq '$(rt/mode)' 'pulpos'
-override CONFIG_OPT += rt/mode=rt
+override CONFIG_OPT += **/rt/mode=rt
 else
 $(error Unknown runtime mode: $(rt/mode))
 endif

@@ -1,9 +1,9 @@
 ifdef cluster
-override CONFIG_OPT += rt/cluster-start=true
+override CONFIG_OPT += **/rt/cluster-start=true
 endif
 
 ifdef fc
-override CONFIG_OPT += rt/fc-start=true
+override CONFIG_OPT += **/rt/fc-start=true
 endif
 
 ifdef platform
@@ -11,34 +11,35 @@ override CONFIG_OPT += platform=$(platform)
 endif
 
 ifdef system
-override CONFIG_OPT += system=$(system)
+override PULP_CURRENT_CONFIG = $(system)@config_file=$(PULP_CONFIGS_PATH)/systems/$(system).json
 endif
 
 ifdef io
-override CONFIG_OPT += rt/iodev=$(io)
+override CONFIG_OPT += **/rt/iodev=$(io)
 endif
 
 ifdef no-werror
-override CONFIG_OPT += rt/werror=false gvsoc/werror=false
+override CONFIG_OPT += **/rt/werror=false gvsoc/werror=false
 endif
 
 ifdef libgomp
-override CONFIG_OPT += rt/openmp-rt=libgomp
+override CONFIG_OPT += **/rt/openmp-rt=libgomp
 endif
 
 ifdef boot
 bridge ?= debug-bridge
-override CONFIG_OPT += loader/bridge=$(bridge)
-override CONFIG_OPT += loader/boot/mode=$(boot)
+override CONFIG_OPT += **/loader/bridge=$(bridge)
+override CONFIG_OPT += **/loader/boot/mode=$(boot)
 endif
 
 ifdef bridge-commands
-override CONFIG_OPT += debug-bridge/commands=$(bridge-commands)
+override CONFIG_OPT += **/debug-bridge/commands=$(bridge-commands)
 endif
 
 ifdef gdb
 override PULP_TEMPLATE_ARGS += gdb($(gdb))
 export PULP_TEMPLATE_ARGS
+override CONFIG_OPT += **/gdb/active=true
 endif
 
 ifdef bridge

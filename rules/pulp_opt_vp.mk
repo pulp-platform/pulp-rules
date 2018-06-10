@@ -1,9 +1,9 @@
 ifdef vp/no-werror
-override CONFIG_OPT += gvsoc/werror=false
+override CONFIG_OPT += **/gvsoc/werror=false
 endif
 
 ifdef vp/trace
-override CONFIG_OPT += gvsoc/trace=$(vp/trace)
+override CONFIG_OPT += **/gvsoc/trace=$(vp/trace)
 endif
 
 help_opt_vp:
