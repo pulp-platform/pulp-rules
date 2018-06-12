@@ -2,6 +2,10 @@ ifdef cluster
 override CONFIG_OPT += **/rt/cluster-start=true
 endif
 
+ifdef periphs
+override CONFIG_OPT += **/runner/use_tb_comps=true **/runner/active_tb_comps=$(periphs)
+endif
+
 ifdef fc
 override CONFIG_OPT += **/rt/fc-start=true
 endif
@@ -27,13 +31,13 @@ override CONFIG_OPT += **/rt/openmp-rt=libgomp
 endif
 
 ifdef boot
-bridge ?= debug-bridge
+bridge ?= debug_bridge
 override CONFIG_OPT += **/loader/bridge=$(bridge)
 override CONFIG_OPT += **/loader/boot/mode=$(boot)
 endif
 
 ifdef bridge-commands
-override CONFIG_OPT += **/debug-bridge/commands=$(bridge-commands)
+override CONFIG_OPT += **/debug_bridge/commands=$(bridge-commands)
 endif
 
 ifdef gdb
@@ -43,8 +47,12 @@ override CONFIG_OPT += **/gdb/active=true
 endif
 
 ifdef bridge
-override PULP_TEMPLATE_ARGS += debug-bridge($(bridge))
+override PULP_TEMPLATE_ARGS += debug_bridge($(bridge))
 export PULP_TEMPLATE_ARGS
+endif
+
+ifdef bridge-autorun
+override CONFIG_OPT += **/debug_bridge/autorun=true
 endif
 
 help_generic:
