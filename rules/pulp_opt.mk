@@ -47,8 +47,7 @@ override CONFIG_OPT += **/gdb/active=true
 endif
 
 ifdef bridge
-override PULP_TEMPLATE_ARGS += debug_bridge($(bridge))
-export PULP_TEMPLATE_ARGS
+override CONFIG_OPT += **/debug_bridge/active=true
 endif
 
 ifdef bridge-autorun
