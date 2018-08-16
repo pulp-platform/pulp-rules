@@ -42,8 +42,16 @@ endif
 configs_opt = $(foreach prop,$(PULP_CURRENT_CONFIG_ARGS), --config=$(prop))
 
 genconf:
+ifdef PULP_USER_CONFIG
+	pulp_user_config_gen --template=$(PULP_USER_CONFIG) --output=$(CONFIG_BUILD_DIR)/user_config.json
+endif
 	plpflags gen $(FLAGS_OPT) --output-dir=$(CONFIG_BUILD_DIR) --makefile=$(CONFIG_BUILD_DIR)/config.mk $(properties) $(libs) $(apps)
+ifdef PULP_USER_CONFIG
+	plpconf --input=$(PULP_CURRENT_CONFIG) --input-file=$(CONFIG_BUILD_DIR)/user_config.json $(configs_opt) --output=$(CONFIG_BUILD_DIR)/config.json
+else
 	plpconf --input=$(PULP_CURRENT_CONFIG) $(configs_opt) --output=$(CONFIG_BUILD_DIR)/config.json
+endif
+
 
 $(CONFIG_BUILD_DIR)/config.json:
 	plpconf --input=$(PULP_CURRENT_CONFIG) $(configs_opt) --output=$(CONFIG_BUILD_DIR)/config.json
