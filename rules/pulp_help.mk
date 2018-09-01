@@ -1,9 +1,9 @@
 help:
 	@echo "Available make targets:" 
-	@echo "  clean      Remove the application temporay files (only the one for the active configuration)."
+	@echo "  clean      Remove the application temporary files (only the one for the active configuration)." 
+	@echo "  conf       Generate application files (configuation, makefiles, etc)."
 	@echo "  all        Build the application."
 	@echo "  run        Run the application."
-	@echo "  conf       Generate application configuration."
 	@echo "  dis        Disassemble application binary."
 	@echo ""
 	@echo "Available make options for targets:"
