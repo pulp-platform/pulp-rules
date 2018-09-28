@@ -10,7 +10,7 @@ ifdef PULP_PROPERTIES
 
 properties := $(foreach prop,$(PULP_PROPERTIES), --property=$(prop))
 
-$(CONFIG_BUILD_DIR)/props.mk: $(MAKEFILE_LIST)
+$(CONFIG_BUILD_DIR)/props.mk: $(MAKEFILE_LIST) $(PULP_SDK_HOME)/install/rules/tools.mk
 	plpinfo mkgen --makefile=$(CONFIG_BUILD_DIR)/props.mk $(properties)
 
 include $(CONFIG_BUILD_DIR)/props.mk

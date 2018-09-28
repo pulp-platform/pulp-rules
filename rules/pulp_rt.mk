@@ -53,7 +53,7 @@ else
 endif
 
 
-$(CONFIG_BUILD_DIR)/config.json:
+$(CONFIG_BUILD_DIR)/config.json: $(PULP_SDK_HOME)/install/rules/tools.mk
 ifdef PULP_USER_CONFIG
 	pulp_user_config_gen --template=$(PULP_USER_CONFIG) --output=$(CONFIG_BUILD_DIR)/user_config.json
 endif
