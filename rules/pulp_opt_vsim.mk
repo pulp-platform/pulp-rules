@@ -51,10 +51,10 @@ help_opt_vsim:
 	@echo -e " - ${BOLD}clean_rtl${STD}: Clean compiled RTL platform"
 	@echo -e " - ${BOLD}build_rtl${STD}: Compile RTL platform"
 	@echo -e " - ${BOLD}vsim_debug${STD}: Questasim debug mode using only msimviewer licence."
-	@echo -e " - ${BOLD}cov_report${STD}: Generate code coverage report"
-	@echo -e " - ${BOLD}cov_gui${STD}: Open Questasim viewer in coverage mode"
-	@echo -e " - ${BOLD}cov_html${STD}: Open firefox to view code coverage report in html format"
-	@echo -e " - ${BOLD}cov_clean${STD}: Clean code coverage db"
+	@echo -e " - ${BOLD}vsim_cov_report${STD}: Generate code coverage report"
+	@echo -e " - ${BOLD}vsim_cov_gui${STD}: Open Questasim viewer in coverage mode"
+	@echo -e " - ${BOLD}vsim_cov_html${STD}: Open firefox to view code coverage report in html format"
+	@echo -e " - ${BOLD}vsim_cov_clean${STD}: Clean code coverage db"
 
 
 VEGA_TOP_PATH=$(VSIM_PATH)/../../..
@@ -77,11 +77,11 @@ vsim_debug:
 ### Questasim Coverage report generation
 #########################################################################
 vsim_cov_report:
-	@vcover merge -out $(VSIM_PATH)/fe/sim/cov/gap_merged.ucdb $(VSIM_PATH)/fe/sim/cov
-	@vcover report -details -source -html -htmldir $(VSIM_PATH)/fe/sim/cov_report_html $(VSIM_PATH)/fe/sim/cov/gap_merged.ucdb
+	@vcover merge -out $(VSIM_PATH)/fe/sim/cov/vega_merged.ucdb $(VSIM_PATH)/fe/sim/cov
+	@vcover report -details -source -html -htmldir $(VSIM_PATH)/fe/sim/cov_report_html $(VSIM_PATH)/fe/sim/cov/vega_merged.ucdb
 
 vsim_cov_gui:
-	@vsim -viewcov $(VSIM_PATH)/fe/sim/cov/gap_merged.ucdb	-do 'add testbrowser $(VSIM_PATH)/fe/sim/cov/gap_merged.ucdb' 
+	@vsim -viewcov $(VSIM_PATH)/fe/sim/cov/vega_merged.ucdb	-do 'add testbrowser $(VSIM_PATH)/fe/sim/cov/vega_merged.ucdb' 
 
 vsim_cov_html:
 	@firefox $(VSIM_PATH)/fe/sim/cov_report_html/index.html &
