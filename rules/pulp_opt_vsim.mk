@@ -48,13 +48,13 @@ help_opt_vsim:
 	@echo -e "##############################################"
 	@echo -e "Available make target for vsim platform:"
 	@echo -e "##############################################"
-	@echo -e " - ${BOLD}clean_rtl${STD}: Clean compiled RTL platform"
-	@echo -e " - ${BOLD}build_rtl${STD}: Compile RTL platform"
-	@echo -e " - ${BOLD}vsim_debug${STD}: Questasim debug mode using only msimviewer licence."
-	@echo -e " - ${BOLD}vsim_cov_report${STD}: Generate code coverage report"
-	@echo -e " - ${BOLD}vsim_cov_gui${STD}: Open Questasim viewer in coverage mode"
-	@echo -e " - ${BOLD}vsim_cov_html${STD}: Open firefox to view code coverage report in html format"
-	@echo -e " - ${BOLD}vsim_cov_clean${STD}: Clean code coverage db"
+	@echo -e " - ${BOLD}clean_rtl${STD}: 				Clean compiled RTL platform"
+	@echo -e " - ${BOLD}build_rtl${STD}: 				Compile RTL platform"
+	@echo -e " - ${BOLD}vsim_debug${STD}: 				Questasim debug mode using only msimviewer licence."
+	@echo -e " - ${BOLD}vsim_cov_report${STD}: 			Generate code coverage report"
+	@echo -e " - ${BOLD}vsim_cov_gui${STD}: 			Open Questasim viewer in coverage mode"
+	@echo -e " - ${BOLD}vsim_cov_html${STD}: 			Open firefox to view code coverage report in html format"
+	@echo -e " - ${BOLD}vsim_cov_clean${STD}: 			Clean code coverage db"
 
 
 VEGA_TOP_PATH=$(VSIM_PATH)/../../..
