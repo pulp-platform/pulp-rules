@@ -31,8 +31,6 @@ override CONFIG_OPT += **/rt/openmp-rt=libgomp
 endif
 
 ifdef boot
-bridge ?= debug_bridge
-override CONFIG_OPT += **/loader/bridge=$(bridge)
 override CONFIG_OPT += **/loader/boot/mode=$(boot)
 endif
 
@@ -60,6 +58,7 @@ endif
 
 ifdef VERBOSE
 override CONFIG_OPT += **/runner/verbose=true
+override CONFIG_OPT += **/runner/py-stack=true
 endif
 
 help_generic:
