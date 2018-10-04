@@ -50,6 +50,7 @@ help_opt_vsim:
 	@echo -e "##############################################"
 	@echo -e " - ${BOLD}clean_rtl${STD}: 				Clean compiled RTL platform"
 	@echo -e " - ${BOLD}build_rtl${STD}: 				Compile RTL platform"
+	@echo -e " - ${BOLD}build_tb${STD}: 				Compile testbench only of RTL platform"
 	@echo -e " - ${BOLD}vsim_debug${STD}: 				Questasim debug mode using only msimviewer licence."
 	@echo -e " - ${BOLD}vsim_cov_report${STD}: 			Generate code coverage report"
 	@echo -e " - ${BOLD}vsim_cov_gui${STD}: 			Open Questasim viewer in coverage mode"
@@ -61,6 +62,9 @@ VEGA_TOP_PATH=$(VSIM_PATH)/../../..
 
 build_rtl:
 	@pushd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile build_rtl && popd
+
+build_tb:
+	@pushd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile build_tb && popd
 
 clean_rtl:
 	@pushd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile clean_rtl && popd
