@@ -58,6 +58,10 @@ ifdef bridge-autorun
 override CONFIG_OPT += **/debug_bridge/autorun=true
 endif
 
+ifdef VERBOSE
+override CONFIG_OPT += **/runner/verbose=true
+endif
+
 help_generic:
 	@echo "Generic options:"
 	@echo "  platform=<name>      Specify the platform on which to launch the application."
