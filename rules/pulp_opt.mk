@@ -31,7 +31,7 @@ override CONFIG_OPT += **/rt/openmp-rt=libgomp
 endif
 
 ifdef boot
-override CONFIG_OPT += **/loader/boot/mode=$(boot)
+override CONFIG_OPT += **/runner/boot-mode=$(boot)
 endif
 
 ifdef bridge-commands
