@@ -35,27 +35,24 @@ BOLD=\033[1m
 STD=\033[0m
 
 help_opt_vsim:
-	@echo -e "##############################################"
-	@echo -e "## Available make options for vsim platform:"
-	@echo -e "##############################################"
-	@echo -e " - ${BOLD}gui=1${STD}:             		Launch simulation from vsim GUI"
-	@echo -e " - ${BOLD}simchecker=1${STD}:      		Activate RISCV simchecker (ISA comparison against golden model)"
-	@echo -e " - ${BOLD}vsim/script=<path${STD}: 		Specify path to a script used to launch the platform>"
-	@echo -e " - ${BOLD}vsim/recordwlf=1${STD}:      	Activate Questasim WLF waveform trace recording in gap.wlf file"
-	@echo -e " - ${BOLD}vsim/dofile=<filename>${STD}: 	Specify one do file located in \$VSIM_PATH/waves to record specific traces during a simulation"
-	@echo -e " - ${BOLD}vsim/enablecov=1${STD}: 		Enable code coverage feature in Questasim"
-	@echo -e ""
-	@echo -e "##############################################"
-	@echo -e "Available make target for vsim platform:"
-	@echo -e "##############################################"
-	@echo -e " - ${BOLD}clean_rtl${STD}: 				Clean compiled RTL platform"
-	@echo -e " - ${BOLD}build_rtl${STD}: 				Compile RTL platform"
-	@echo -e " - ${BOLD}build_tb${STD}: 				Compile testbench only of RTL platform"
-	@echo -e " - ${BOLD}vsim_debug${STD}: 				Questasim debug mode using only msimviewer licence."
-	@echo -e " - ${BOLD}vsim_cov_report${STD}: 			Generate code coverage report"
-	@echo -e " - ${BOLD}vsim_cov_gui${STD}: 			Open Questasim viewer in coverage mode"
-	@echo -e " - ${BOLD}vsim_cov_html${STD}: 			Open firefox to view code coverage report in html format"
-	@echo -e " - ${BOLD}vsim_cov_clean${STD}: 			Clean code coverage db"
+	@echo
+	@echo "Available make options for vsim platform:"
+	@echo "  gui=1                   Launch simulation from vsim GUI"
+	@echo "  simchecker=1            Activate RISCV simchecker (ISA comparison against golden model)"
+	@echo "  vsim/script=<path       Specify path to a script used to launch the platform>"
+	@echo "  vsim/recordwlf=1        Activate Questasim WLF waveform trace recording in gap.wlf file"
+	@echo "  vsim/dofile=<filename>  Specify one do file located in \$VSIM_PATH/waves to record specific traces during a simulation"
+	@echo "  vsim/enablecov=1        Enable code coverage feature in Questasim"
+	@echo ""
+	@echo "Available make target for vsim platform:"
+	@echo "  clean_rtl               Clean compiled RTL platform"
+	@echo "  build_rtl               Compile RTL platform"
+	@echo "  build_tb                Compile testbench only of RTL platform"
+	@echo "  vsim_debug              Questasim debug mode using only msimviewer licence."
+	@echo "  vsim_cov_report         Generate code coverage report"
+	@echo "  vsim_cov_gui            Open Questasim viewer in coverage mode"
+	@echo "  vsim_cov_html           Open firefox to view code coverage report in html format"
+
 
 
 VEGA_TOP_PATH=$(VSIM_PATH)/../../..

@@ -17,8 +17,8 @@ endif
 # in case the tools are updated
 include $(PULP_SDK_HOME)/install/rules/tools.mk
 include $(PULP_SDK_HOME)/install/rules/pulp_defs.mk
-include $(PULP_SDK_HOME)/install/rules/pulp_opt.mk
 include $(PULP_SDK_HOME)/install/rules/pulp_help.mk
+include $(PULP_SDK_HOME)/install/rules/pulp_opt.mk
 
 # Work-around to don't break old applications using PULP_OMP_APP which is now deprecated
 ifdef PULP_OMP_APP
