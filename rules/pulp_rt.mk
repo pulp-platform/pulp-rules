@@ -72,3 +72,6 @@ $(CONFIG_BUILD_DIR)/config.mk: $(MAKEFILE_LIST)
 -include $(CONFIG_BUILD_DIR)/config.mk
 
 conf: $(MAKEFILE_LIST) genconf $(GEN_TARGETS_FORCE)
+
+flash:
+	pulp-run $(pulpRunOpt) flash
