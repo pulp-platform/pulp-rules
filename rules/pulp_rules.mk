@@ -1,1 +1,1 @@
-include $(PULP_SDK_HOME)/install/rules/pulp.mk
+include $(PULP_SDK_INSTALL)/rules/pulp.mk

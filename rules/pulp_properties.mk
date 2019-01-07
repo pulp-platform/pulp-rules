@@ -2,15 +2,20 @@
 # This makefile can be included by a module or application in order to generate some properties
 # extracted from the architecture
 #
-# For that define the properties in PULP_PROPERTIES and include $(PULP_SDK_HOME)/install/rules/pulp_properties.mk
+# For that define the properties in PULP_PROPERTIES and include $(PULP_SDK_INSTALL)/rules/pulp_properties.mk
 
-include $(PULP_SDK_HOME)/install/rules/pulp_defs.mk
+ifndef PULP_SDK_INSTALL
+export PULP_SDK_INSTALL=$(TARGET_INSTALL_DIR)
+export PULP_SDK_WS_INSTALL=$(INSTALL_DIR)
+endif
+
+include $(PULP_SDK_INSTALL)/rules/pulp_defs.mk
 
 ifdef PULP_PROPERTIES
 
 properties := $(foreach prop,$(PULP_PROPERTIES), --property=$(prop))
 
-$(CONFIG_BUILD_DIR)/props.mk: $(MAKEFILE_LIST) $(PULP_SDK_HOME)/install/rules/tools.mk
+$(CONFIG_BUILD_DIR)/props.mk: $(MAKEFILE_LIST) $(PULP_SDK_INSTALL)/rules/tools.mk
 	plpinfo mkgen --makefile=$(CONFIG_BUILD_DIR)/props.mk $(properties)
 
 include $(CONFIG_BUILD_DIR)/props.mk

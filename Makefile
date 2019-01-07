@@ -1,9 +1,9 @@
 define declareInstallFile
 
-$(PULP_SDK_INSTALL)/$(1): $(1)
+$(TARGET_INSTALL_DIR)/$(1): $(1)
 	install -D $(1) $$@
 
-INSTALL_HEADERS += $(PULP_SDK_INSTALL)/$(1)
+INSTALL_HEADERS += $(TARGET_INSTALL_DIR)/$(1)
 
 endef
 

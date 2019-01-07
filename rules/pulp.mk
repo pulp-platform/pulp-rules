@@ -18,4 +18,4 @@ cluster=1
 endif
 endif
 
-include $(PULP_SDK_HOME)/install/rules/pulp_rt.mk
+include $(PULP_SDK_INSTALL)/rules/pulp_rt.mk

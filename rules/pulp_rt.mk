@@ -10,15 +10,20 @@ $(error PULP_CURRENT_CONFIG must contain the current configuration)
 endif
 
 ifndef PULP_SDK_HOME
+ifndef INSTALL_DIR
 $(error The SDK is not configured, PULP_SDK_HOME is undefined)
+else
+export PULP_SDK_INSTALL=$(TARGET_INSTALL_DIR)
+export PULP_SDK_WS_INSTALL=$(INSTALL_DIR)
+endif
 endif
 
 # This file is a dummy one and is included just to trigger module recompilation
 # in case the tools are updated
-include $(PULP_SDK_HOME)/install/rules/tools.mk
-include $(PULP_SDK_HOME)/install/rules/pulp_defs.mk
-include $(PULP_SDK_HOME)/install/rules/pulp_help.mk
-include $(PULP_SDK_HOME)/install/rules/pulp_opt.mk
+include $(PULP_SDK_INSTALL)/rules/tools.mk
+include $(PULP_SDK_INSTALL)/rules/pulp_defs.mk
+include $(PULP_SDK_INSTALL)/rules/pulp_help.mk
+include $(PULP_SDK_INSTALL)/rules/pulp_opt.mk
 
 # Work-around to don't break old applications using PULP_OMP_APP which is now deprecated
 ifdef PULP_OMP_APP
@@ -53,7 +58,7 @@ else
 endif
 
 
-$(CONFIG_BUILD_DIR)/config.json: $(PULP_SDK_HOME)/install/rules/tools.mk
+$(CONFIG_BUILD_DIR)/config.json: $(PULP_SDK_INSTALL)/rules/tools.mk
 ifdef PULP_USER_CONFIG
 	pulp_user_config_gen --template=$(PULP_USER_CONFIG) --output=$(CONFIG_BUILD_DIR)/user_config.json
 endif
