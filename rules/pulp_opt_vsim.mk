@@ -55,7 +55,7 @@ help_opt_vsim:
 
 
 
-VEGA_TOP_PATH=$(VSIM_PATH)/../../..
+VEGA_TOP_PATH=$(VSIM_PATH)/../..
 
 build_rtl:
 	@pushd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile build_rtl && popd
