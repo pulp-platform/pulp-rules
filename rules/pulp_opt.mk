@@ -1,3 +1,13 @@
+override PLT_OPT += --config-file=$(PULP_CURRENT_CONFIG)
+ifdef PULP_CURRENT_CONFIG_ARGS
+override PLT_OPT += $(foreach var,$(PULP_CURRENT_CONFIG_ARGS), --config-opt=$(var))
+endif
+
+ifdef USER_CONFIG
+USER_CONFIG_OPT = --config-user=$(USER_CONFIG)
+override PLT_OPT += --config-user=$(USER_CONFIG)
+endif
+
 ifdef cluster
 override CONFIG_OPT += **/rt/cluster-start=true
 endif
@@ -12,6 +22,7 @@ endif
 
 ifdef platform
 override CONFIG_OPT += platform=$(platform)
+override PLT_OPT += --config-opt=platform=$(platform)
 endif
 
 ifdef system
