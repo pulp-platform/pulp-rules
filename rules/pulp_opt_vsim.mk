@@ -58,13 +58,13 @@ help_opt_vsim:
 VEGA_TOP_PATH=$(VSIM_PATH)/../..
 
 build_rtl:
-	@pushd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile build_rtl && popd
+	@cd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile build_rtl
 
 build_tb:
-	@pushd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile build_tb && popd
+	@cd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile build_tb
 
 clean_rtl:
-	@pushd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile clean_rtl && popd
+	@cd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile clean_rtl
 
 
 #########################################################################
@@ -78,15 +78,14 @@ vsim_debug:
 ### Questasim Coverage report generation
 #########################################################################
 vsim_cov_report:
-	@vcover merge -out $(VSIM_PATH)/fe/sim/cov/vega_merged.ucdb $(VSIM_PATH)/fe/sim/cov
-	@vcover report -details -source -html -htmldir $(VSIM_PATH)/fe/sim/cov_report_html $(VSIM_PATH)/fe/sim/cov/vega_merged.ucdb
+	@cd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile  vsim_cov_report
 
 vsim_cov_gui:
-	@vsim -viewcov $(VSIM_PATH)/fe/sim/cov/vega_merged.ucdb	-do 'add testbrowser $(VSIM_PATH)/fe/sim/cov/vega_merged.ucdb' 
+	@cd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile  vsim_cov_gui
 
 vsim_cov_html:
-	@firefox $(VSIM_PATH)/fe/sim/cov_report_html/index.html &
+	@cd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile  vsim_cov_html
 
 vsim_cov_clean:
-	@rm -rf $(VSIM_PATH)/fe/sim/cov $(VSIM_PATH)/fe/sim/cov_report_html
+	@cd $(VEGA_TOP_PATH) && make -f $(VEGA_TOP_PATH)/Makefile  vsim_cov_clean
 
