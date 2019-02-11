@@ -18,6 +18,7 @@ $(error Either PULP_SDK_WS_INSTALL or INSTALL_DIR must be defined)
 else
 export PULP_SDK_WS_INSTALL=$(INSTALL_DIR)
 endif
+endif
 
 include $(PULP_SDK_INSTALL)/rules/pulp_defs.mk
 
