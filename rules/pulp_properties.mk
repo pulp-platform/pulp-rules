@@ -5,7 +5,17 @@
 # For that define the properties in PULP_PROPERTIES and include $(PULP_SDK_INSTALL)/rules/pulp_properties.mk
 
 ifndef PULP_SDK_INSTALL
+ifndef TARGET_INSTALL_DIR
+$(error Either PULP_SDK_INSTALL or TARGET_INSTALL_DIR must be defined)
+else
 export PULP_SDK_INSTALL=$(TARGET_INSTALL_DIR)
+endif
+endif
+
+ifndef PULP_SDK_WS_INSTALL
+ifndef INSTALL_DIR
+$(error Either PULP_SDK_WS_INSTALL or INSTALL_DIR must be defined)
+else
 export PULP_SDK_WS_INSTALL=$(INSTALL_DIR)
 endif
 
