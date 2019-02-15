@@ -3,17 +3,14 @@ override CONFIG_OPT += **/rt/werror=false
 endif
 
 ifdef rt/mode
-ifeq '$(rt/mode)' 'bare'
-override CONFIG_OPT += **/rt/mode=rtbare
-else
-ifeq '$(rt/mode)' 'tiny'
-override CONFIG_OPT += **/rt/mode=rttiny
+ifeq '$(rt/mode)' 'profile'
+override CONFIG_OPT += **/rt/mode=rt_profile
+override CONFIG_OPT += **/rt/cflags=-D__RT_USE_PROFILE=1
 else
 ifeq '$(rt/mode)' 'pulpos'
 override CONFIG_OPT += **/rt/mode=rt
 else
 $(error Unknown runtime mode: $(rt/mode))
-endif
 endif
 endif
 endif
