@@ -48,18 +48,18 @@ endif
 configs_opt = $(foreach prop,$(PULP_CURRENT_CONFIG_ARGS), --config=$(prop))
 
 genconf:
-	plpflags gen $(FLAGS_OPT) --output-dir=$(CONFIG_BUILD_DIR) --makefile=$(CONFIG_BUILD_DIR)/config.mk $(properties) $(libs) $(apps)
+	plpflags gen --input=$(PULP_CURRENT_CONFIG) $(configs_opt)$(FLAGS_OPT) --output-dir=$(CONFIG_BUILD_DIR) --makefile=$(CONFIG_BUILD_DIR)/config.mk $(properties) $(libs) $(apps) $(USER_CONFIG_OPT)
 	plpconf --input=$(PULP_CURRENT_CONFIG) $(configs_opt) --output=$(CONFIG_BUILD_DIR)/config.json $(USER_CONFIG_OPT)
 
 
 $(CONFIG_BUILD_DIR)/config.json: $(PULP_SDK_INSTALL)/rules/tools.mk
-	plpflags gen $(FLAGS_OPT) --output-dir=$(CONFIG_BUILD_DIR) --makefile=$(CONFIG_BUILD_DIR)/config.mk $(properties) $(libs) $(apps)
+	plpflags gen --input=$(PULP_CURRENT_CONFIG) $(configs_opt)$(FLAGS_OPT) --output-dir=$(CONFIG_BUILD_DIR) --makefile=$(CONFIG_BUILD_DIR)/config.mk $(properties) $(libs) $(apps) $(USER_CONFIG_OPT)
 	plpconf --input=$(PULP_CURRENT_CONFIG) $(configs_opt) --output=$(CONFIG_BUILD_DIR)/config.json $(USER_CONFIG_OPT)
 
 GEN_TARGETS += $(CONFIG_BUILD_DIR)/config.json
 
 $(CONFIG_BUILD_DIR)/config.mk: $(MAKEFILE_LIST)
-	plpflags gen $(FLAGS_OPT) --output-dir=$(CONFIG_BUILD_DIR) --makefile=$(CONFIG_BUILD_DIR)/config.mk $(properties) $(libs) $(apps)
+	plpflags gen --input=$(PULP_CURRENT_CONFIG) $(configs_opt)$(FLAGS_OPT) --output-dir=$(CONFIG_BUILD_DIR) --makefile=$(CONFIG_BUILD_DIR)/config.mk $(properties) $(libs) $(apps) $(USER_CONFIG_OPT)
 
 -include $(CONFIG_BUILD_DIR)/config.mk
 
