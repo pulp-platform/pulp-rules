@@ -38,7 +38,9 @@ override CONFIG_OPT += **/rt/type=pulp-rt
 
 ifdef CONFIG_OPT
 export PULP_CURRENT_CONFIG_ARGS += $(CONFIG_OPT)
+ifndef PULP_RUN_CMD
 override PLT_OPT += $(foreach opt,$(CONFIG_OPT), --config-opt=$(opt))
+endif
 endif
 
 ifdef PLT_OPT

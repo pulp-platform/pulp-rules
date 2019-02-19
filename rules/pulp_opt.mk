@@ -1,6 +1,8 @@
+ifndef PULP_RUN_CMD
 override PLT_OPT += --config-file=$(PULP_CURRENT_CONFIG)
 ifdef PULP_CURRENT_CONFIG_ARGS
 override PLT_OPT += $(foreach var,$(PULP_CURRENT_CONFIG_ARGS), --config-opt=$(var))
+endif
 endif
 
 ifdef USER_CONFIG
@@ -22,7 +24,9 @@ endif
 
 ifdef platform
 override CONFIG_OPT += platform=$(platform)
+ifndef PULP_RUN_CMD
 override PLT_OPT += --config-opt=platform=$(platform)
+endif
 endif
 
 ifdef system
