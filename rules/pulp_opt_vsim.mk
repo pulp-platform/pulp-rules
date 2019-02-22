@@ -26,6 +26,10 @@ ifdef vsim/enablecov
 override CONFIG_OPT += **/vsim/enablecov=true
 endif
 
+ifdef vsim/enableJtagTargetSync
+override CONFIG_OPT += **/vsim/enableJtagTargetSync=true
+endif
+
 
 
 BLUE='\033[0;34m'
@@ -37,12 +41,13 @@ STD=\033[0m
 help_opt_vsim:
 	@echo
 	@echo "Available make options for vsim platform:"
-	@echo "  gui=1                   Launch simulation from vsim GUI"
-	@echo "  simchecker=1            Activate RISCV simchecker (ISA comparison against golden model)"
-	@echo "  vsim/script=<path       Specify path to a script used to launch the platform>"
-	@echo "  vsim/recordwlf=1        Activate Questasim WLF waveform trace recording in gap.wlf file"
-	@echo "  vsim/dofile=<filename>  Specify one do file located in \$VSIM_PATH/waves to record specific traces during a simulation"
-	@echo "  vsim/enablecov=1        Enable code coverage feature in Questasim"
+	@echo "  gui=1                   	Launch simulation from vsim GUI"
+	@echo "  simchecker=1            	Activate RISCV simchecker (ISA comparison against golden model)"
+	@echo "  vsim/script=<path       	Specify path to a script used to launch the platform>"
+	@echo "  vsim/recordwlf=1        	Activate Questasim WLF waveform trace recording in gap.wlf file"
+	@echo "  vsim/dofile=<filename>  	Specify one do file located in \$VSIM_PATH/waves to record specific traces during a simulation"
+	@echo "  vsim/enablecov=1        	Enable code coverage feature in Questasim"
+	@echo "  vsim/enableJtagTargetSync=1    Enable JTAG target synchronization with tb to authorize EOC checks via JTAG"
 	@echo ""
 	@echo "Available make target for vsim platform:"
 	@echo "  clean_rtl               Clean compiled RTL platform"
