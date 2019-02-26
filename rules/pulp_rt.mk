@@ -45,6 +45,10 @@ ifdef PLT_OPT
 pulpRunOpt += $(PLT_OPT)
 endif
 
+ifdef runner_args
+pulpRunOpt += $(runner_args)
+endif
+
 configs_opt = $(foreach prop,$(PULP_CURRENT_CONFIG_ARGS), --config=$(prop))
 
 genconf:
