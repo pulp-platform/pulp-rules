@@ -13,9 +13,7 @@ override CONFIG_OPT += rt/start-all=true
 #
 
 ifndef cluster
-ifndef fc
-cluster=1
-endif
+fc=1
 endif
 
 include $(PULP_SDK_INSTALL)/rules/pulp_rt.mk
