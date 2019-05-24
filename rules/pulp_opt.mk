@@ -63,8 +63,8 @@ ifdef bridge
 override CONFIG_OPT += **/debug_bridge/active=true
 endif
 
-ifdef simulator
-override CONFIG_OPT += **/runner/simulator=$(simulator)
+ifdef rtl_simulator
+override CONFIG_OPT += **/runner/rtl_simulator=$(rtl_simulator)
 endif
 
 ifdef bridge-autorun
@@ -84,7 +84,7 @@ help_generic:
 	@echo "  boot=<boot>          Specify the boot mode (rom, jtag, rom_spi, rom_hyper)"
 	@echo "  gdb=1                Activate GDB support"
 	@echo "  bridge=<mode>        Activate debug bridge support with the specified mode (jtag)"
-	@echo "  simulator=<name>     Specify simulator to be used." 
+	@echo "  rtl_simulator=<name>     Specify RTL simulator to be used." 
 
 help_opt: help_generic help_opt_vsim help_opt_vp help_opt_rt
 
