@@ -28,6 +28,9 @@ else
 PULP_APP = $(APP)
 PULP_APP_FC_SRCS = $(SRCS)
 PULP_CFLAGS = $(CFLAGS)
+ifdef USE_PMSIS_BSP
+PULP_LDFLAGS += -lpibsp
+endif
 
 include $(PULP_SDK_HOME)/install/rules/pulp_rt.mk
 
