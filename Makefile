@@ -9,6 +9,7 @@ endef
 
 
 INSTALL_FILES += $(shell find rules -name *.mk)
+INSTALL_FILES += $(shell find rules/zephyr -name CMakeLists.txt)
 
 $(foreach file, $(INSTALL_FILES), $(eval $(call declareInstallFile,$(file))))
 
