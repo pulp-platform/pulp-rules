@@ -17,13 +17,19 @@ include $(GAP_SDK_HOME)/tools/rules/mbed_rules.mk
 
 else
 
-override runner_args += --config-user=$(RUNNER_CONFIG)
-
 ifeq '$(PMSIS_OS)' 'zephyr'
+
+ifdef RUNNER_CONFIG
+override runner_args += --config-user=$(RUNNER_CONFIG)
+endif
 
 include $(PULP_SDK_HOME)/install/rules/zephyr.mk
 
 else
+
+ifdef RUNNER_CONFIG
+export USER_CONFIG=$(RUNNER_CONFIG)
+endif
 
 PULP_APP = $(APP)
 PULP_APP_FC_SRCS = $(SRCS)
