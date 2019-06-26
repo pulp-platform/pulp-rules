@@ -37,6 +37,9 @@ PULP_CFLAGS = $(CFLAGS)
 ifdef USE_PMSIS_BSP
 PULP_LDFLAGS += -lpibsp
 endif
+ifdef USE_PMSIS_TOOLS
+PULP_LDFLAGS += -lpitools
+endif
 
 include $(PULP_SDK_HOME)/install/rules/pulp_rt.mk
 
