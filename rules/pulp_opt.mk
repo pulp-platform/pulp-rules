@@ -86,8 +86,8 @@ help_generic:
 	@echo "  bridge=<mode>        Activate debug bridge support with the specified mode (jtag)"
 	@echo "  rtl_simulator=<name>     Specify RTL simulator to be used." 
 
-help_opt: help_generic help_opt_vsim help_opt_vp help_opt_rt
+help_opt: help_generic help_sim_vsim help_opt_vp help_opt_rt
 
--include $(PULP_SDK_INSTALL)/rules/pulp_opt_vsim.mk
+# -include $(PULP_SDK_INSTALL)/rules/pulp_opt_vsim.mk
 -include $(PULP_SDK_INSTALL)/rules/pulp_opt_vp.mk
 -include $(PULP_SDK_INSTALL)/rules/pulp_opt_rt.mk

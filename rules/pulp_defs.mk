@@ -13,5 +13,7 @@ PULP_CURRENT_CONFIG_NAME = $(firstword $(subst @, ,$(PULP_CURRENT_CONFIG)))
 endif
 
 BUILD_DIR          ?= $(CURDIR)/build
+
 CONFIG_BUILD_DIR   ?= $(subst =,.,$(BUILD_DIR)/$(PULP_CURRENT_CONFIG_NAME))$(build_dir_ext)$(BUILD_DIR_EXT)
 APP_BUILD_DIR      = $(CONFIG_BUILD_DIR)
+BUILDDIR 			?=$(CONFIG_BUILD_DIR)
