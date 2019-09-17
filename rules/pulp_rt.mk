@@ -35,6 +35,7 @@ libs       = $(foreach lib,$(PULP_LIBS), --lib=$(lib))
 apps       = $(foreach app,$(PULP_APP), --app=$(app))
 
 override CONFIG_OPT += **/rt/type=pulp-rt
+override CONFIG_OPT += **/rt/bsp=true
 
 ifdef CONFIG_OPT
 export PULP_CURRENT_CONFIG_ARGS += $(CONFIG_OPT)
