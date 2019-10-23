@@ -21,8 +21,7 @@ override CONFIG_OPT += **/rt/fc-start=true
 endif
 
 ifdef platform
-override CONFIG_OPT += platform=$(platform)
-override PLT_OPT += --config-opt=platform=$(platform)
+override PLT_OPT += --platform=$(platform)
 endif
 
 ifdef system
