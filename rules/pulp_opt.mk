@@ -44,6 +44,10 @@ ifdef boot
 override CONFIG_OPT += **/runner/boot-mode=$(boot)
 endif
 
+ifdef bridge
+override CONFIG_OPT += **/runner/bridge=$(bridge)
+endif
+
 ifdef bridge-commands
 override CONFIG_OPT += **/debug_bridge/commands=$(bridge-commands)
 endif
