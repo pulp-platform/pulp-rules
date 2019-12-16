@@ -5,6 +5,12 @@
 # architecture and is then included.
 #
 
+ifdef USE_PULPOS
+
+include $(PULPOS_HOME)/rules/pulpos.mk
+
+else
+
 ifndef PULP_CURRENT_CONFIG
 $(error PULP_CURRENT_CONFIG must contain the current configuration)
 endif
@@ -73,3 +79,5 @@ conf: $(MAKEFILE_LIST) genconf $(GEN_TARGETS_FORCE)
 
 flash:
 	pulp-run $(pulpRunOpt) flash
+
+endif

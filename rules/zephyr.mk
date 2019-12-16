@@ -6,9 +6,7 @@ ZEPHYR_SRCS = $(foreach dir,$(APP_SRCS),$(CURDIR)/$(dir))
 
 BUILDDIR = build/zephyr$(build_dir_ext)
 
-ifdef USE_PMSIS_BSP
 ZEPHYR_OPT += -DZEPHYR_MODULES=$(PULP_SDK_HOME)/install/src/pmsis_bsp
-endif
 
 $(BUILDDIR):
 	mkdir -p $(BUILDDIR)

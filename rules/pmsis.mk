@@ -42,7 +42,7 @@ ifdef USE_PMSIS_TOOLS
 PULP_LDFLAGS += -lpitools
 endif
 ifdef USE_PMSIS_KERNELS
-PULP_LDFLAGS += -lpikernels
+PULP_LDFLAGS += -lgaplib
 endif
 
 include $(PULP_SDK_HOME)/install/rules/pulp_rt.mk

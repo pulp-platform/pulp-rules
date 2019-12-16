@@ -30,6 +30,9 @@ ifdef vsim/enableJtagTargetSync
 override CONFIG_OPT += **/vsim/enableJtagTargetSync=true
 endif
 
+ifdef vsim/args
+override CONFIG_OPT += **/vsim/args=$(vsim/args)
+endif
 
 
 BLUE='\033[0;34m'
